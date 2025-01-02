@@ -85,7 +85,7 @@ GEM
     bindex (0.8.1)
     bootsnap (1.18.4)
       msgpack (~> 1.2)
-    brakeman (6.2.2)
+    brakeman (7.0.0)
       racc
     builder (3.3.0)
     capybara (3.40.0)
@@ -142,7 +142,7 @@ GEM
       zeitwerk (>= 2.6.18, < 3.0)
     language_server-protocol (3.17.0.3)
     logger (1.6.4)
-    loofah (2.23.1)
+    loofah (2.24.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
     mail (2.8.1)
@@ -363,7 +363,7 @@ PLATFORMS
 DEPENDENCIES
   awesome_print
   bootsnap
-  brakeman
+  brakeman (~> 7.0.0)
   capybara
   debug
   importmap-rails
