@@ -3,14 +3,21 @@
 <% content_for :title, "Books" %>
 
 <h1>Books</h1>
+<%= link_to "New book", new_book_path %>
 
 <div id="books">
+  <ul>
   <% @books.each do |book| %>
-    <%= render book %>
-    <p>
-      <%= link_to "Show this book", book %>
-    </p>
+  <li>
+    <%= link_to book.title, book_path(book) %>
+    <%= link_to "Edit", edit_book_path(book) %>
+    <%= button_to "Delete", 
+      book_path(book), 
+      method: :delete, 
+      form: { class: "delete-form" },
+      data: { turbo_confirm: "Sure?" }
+    %>
+  </li>
   <% end %>
+</ul>
 </div>
-
-<%= link_to "New book", new_book_path %>
