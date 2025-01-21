@@ -6,7 +6,7 @@
 
   <p>
     <strong>Memo:</strong>
-    <%= book.memo %>
+    <%= simple_format(@book.memo) %> <!-- simple_formatメソッドを使って改行を反映 -->
   </p>
 
   <p>
