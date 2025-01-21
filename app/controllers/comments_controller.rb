@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to @book
     else
-      render 'books/show', status: :unprocessable_entity
+      render "books/show", status: :unprocessable_entity
     end
   end
 
