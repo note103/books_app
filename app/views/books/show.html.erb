@@ -1,10 +1,45 @@
 <p style="color: green"><%= notice %></p>
+<h1><%= @book.title %></h1>
 
 <%= render @book %>
 
 <div>
   <%= link_to "Edit this book", edit_book_path(@book) %> |
-  <%= link_to "Back to books", books_path %>
+  <%= link_to "Back to books", root_path %>
 
-  <%= button_to "Destroy this book", @book, method: :delete %>
+  <%= button_to "Destroy this book", @book, method: :delete, data: { turbo_confirm: "Sure?" } %>
 </div>
+
+<h2>Comments</h2>
+<ul>
+  <% @book.comments.each do |comment| %>
+  <% if comment.persisted? %>
+  <li><%= comment.body %>
+    <%= button_to "Delete", 
+      book_comment_path(book_id: @book.id, id: comment.id), 
+      method: :delete,
+      form: { class: "delete-form" },
+      data: { turbo_confirm: "Sure?" }
+    %>
+  </li>
+  <% end %>
+  <% end %>
+</ul>
+
+<h2>Add a comment</h2>
+<%= form_with model: [@book, @comment] do |form| %>
+<div>
+  <%= form.text_field :body %>
+  <% if @comment.errors.any? %>
+  <ul style="color: red">
+    <% @comment.errors.full_messages_for(:body).each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+  <% end %>
+</div>
+<div>
+  <%= form.submit %>
+</div>
+
+<% end %>

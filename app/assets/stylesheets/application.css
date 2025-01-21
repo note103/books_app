@@ -8,3 +8,41 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+
+ .container {
+  width: 400px;
+  margin: 16px auto;
+}
+
+h1 {
+  font-size: 20px;
+}
+
+h1 a {
+  font-size: 16px;
+  font-weight: normal;
+}
+
+h2 {
+  font-size: 16px;
+}
+
+.back-link {
+  text-align: right;
+}
+
+form div + div {
+  margin-top: 8px;
+}
+
+input[type="text"],
+textarea {
+  /* width: 100%; */
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.delete-form {
+  display: inline;
+}
