@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get "comments/create"
   resources :books do
     resources :comments, only: %i[ create destroy ]
   end
